@@ -1,0 +1,26 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div id="dashboard">
+        <h1>Welcome, {{ current_user.username }}</h1>
+        <h2>Your Department: {{ current_user.department.name }}</h2>
+        <div id="noodle-process-form">
+            <form action="{{ url_for('noodle_manufacturing_process_routes.start_process') }}" method="post">
+                <input type="submit" value="Start Noodle Manufacturing Process">
+            </form>
+            <form action="{{ url_for('noodle_manufacturing_process_routes.end_process') }}" method="post">
+                <input type="submit" value="End Noodle Manufacturing Process">
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
+```
